@@ -1,0 +1,290 @@
+\chapter{Functional Safety Concept}
+\label{ch:concept}
+
+The functional safety concept consists of:
+\begin{itemize}
+  \item Functional safety analysis
+  \item Functional safety requirements
+  \item Functional safety architecture
+  \item Warning and degradation concept
+\end{itemize}
+
+
+\section{Functional Safety Analysis}
+
+% Instructions: Fill in the functional safety analysis table below.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Violations of the safety goals}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{2.7cm}|L{3.5cm}|L{2.3cm}|L{4.3cm}  }
+ \hline
+\rowcolor{black!10}
+Malfunction ID   &
+Main Function of the Item Related to Safety Goal Violations  &
+Guidewords (NO, WRONG, EARLY, LATE, MORE, LESS) &
+Resulting malfunction  \\\hline
+\textcolor{red}{\texttt{Malfunction\_01}}  &
+Lane Departure Warning (LDW) function shall apply an oscillating steering
+torque to provide the driver a haptic feedback  &
+MORE  &
+The lane departure warning function applies an oscillating torque with very
+high torque frequency (above limit)\\\hline
+\textcolor{red}{\texttt{Malfunction\_02}}  &
+Lane Departure Warning (LDW) function shall apply an oscillating steering
+torque to provide the driver a haptic feedback  &
+MORE  &
+The lane departure warning function applies an oscillating torque with very
+high torque amplitude (above limit)\\\hline
+\textcolor{red}{\texttt{Malfunction\_03}}  &
+Lane Keeping Assistance (LKA) function shall apply the steering torque when
+active in order to stay in ego lane  &
+NO  &
+The lane keeping assistance function is not limited in time duration which
+leads to misuse as an autonomous driving function.\\\hline
+%\textcolor{red}{\texttt{Malfunction\_04}}  &
+%  &
+%  &
+% \\\hline
+\end{tabular}
+\end{center}
+\label{tab:malfunctions}
+\end{table}
+
+
+\section{Functional Safety Requirements}
+
+Functional Safety Requirements for the Lane Departure Warning (LDW)
+are shown in Table~\ref{tab:FuncRequirementsLdw}.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Functional Safety Requirements: Lane Departure Warning}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{3.2cm}|L{0.7cm}|L{3.5cm}|L{3.5cm}  }
+ \hline
+\rowcolor{black!10}
+ID &
+Functional Safety Requirement  &
+ASIL &
+Fault Tolerant Time Interval  &  
+Safe State \\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-01}}  &
+The lane keeping item shall ensure that the lane departure oscillating torque
+amplitude is below \textcolor{dark-red}{\texttt{Max\_Torque\_Amplitude}}  &
+C &
+50 ms  &
+the system is turned off
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-02}}  &
+The lane keeping item shall ensure that the lane departure oscillating torque
+frequency is below \textcolor{dark-red}{\texttt{Max\_Torque\_Frequency}} &
+C &
+50 ms  &
+the system is turned off 
+\\\hline
+\end{tabular}
+\end{center}
+\label{tab:FuncRequirementsLdw}
+\end{table}
+
+
+Lane Departure Warning (LDW) Verification and Validation Acceptance Criteria:
+are shown in Table~\ref{tab:LdwVV}.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{LDW Verification and Validation Acceptance Criteria}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{4.5cm}|L{4.8cm}  }
+ \hline
+\rowcolor{black!10}
+ID &
+Validation Acceptance Criteria and Method  &
+Verification Acceptance Criteria and Method 
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-01}}  &
+User study: driver's reaction to the \textcolor{dark-red}{\texttt{Max\_Torque\_Amplitude}}
+while activating the item &
+Fault injection, model checking, formal analysis: meeting the requirement
+  upon fault injection\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-02}}  &
+User study: driver's reaction to the \textcolor{dark-red}{\texttt{Max\_Torque\_Frequency}}
+while activating the item &
+Fault injection, model checking, formal analysis: meeting the requirement
+  upon injecting fault, performing model checking of the system\\\hline
+\end{tabular}
+\end{center}
+\label{tab:LdwVV}
+\end{table}
+
+Functional Safety Requirements for the Lane Keeping Assistance (LKA)
+are shown in Table~\ref{tab:FuncRequirementsLka}.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Functional Safety Requirements: Lane Keeping Assistance}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{3.2cm}|L{0.7cm}|L{3.5cm}|L{3.5cm}  }
+ \hline
+\rowcolor{black!10}
+ID &
+Functional Safety Requirement  &
+ASIL &
+Fault Tolerant Time Interval  &  
+Safe State \\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 02-01}}  &
+The electronic power steering ECU shall ensure that the lane keeping
+  assistance torque is applied for only \textcolor{dark-red}{\texttt{Max\_Duration}}  &
+B &
+500 ms  &
+The lane keeping functionality is turned off\\\hline
+%\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-02}}  &
+%  &
+%  &
+%  &
+%\\\hline
+\end{tabular}
+\end{center}
+\label{tab:FuncRequirementsLka}
+\end{table}
+
+
+Lane Keeping Assistance (LKA) Verification and Validation Acceptance Criteria:
+are shown in Table~\ref{tab:LkaVV}.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{LKA Verification and Validation Acceptance Criteria}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{4.5cm}|L{4.8cm}  }
+ \hline
+\rowcolor{black!10}
+ID &
+Validation Acceptance Criteria and Method  &
+Verification Acceptance Criteria and Method 
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 02-01}}  &
+User study: \textcolor{dark-red}{\texttt{Max\_Duration}} time interval in
+choosen in a way that drivers do not take their hands off the steering wheel  &
+Verifying item functionality under fault injections\\\hline
+%\textcolor{dark-green}{\texttt{Functional Safety Requirement 02-02}}  &
+%  &
+%\\\hline
+\end{tabular}
+\end{center}
+\label{tab:LkaVV}
+\end{table}
+
+
+\section{Refinement of the System Architecture}
+
+% Instructions: Include the refined system architecture. 
+% Hint: The refined system architecture should include the system architecture
+% from the end of the functional safety lesson including all of the ASIL labels.
+
+Figure~\ref{fig:refined-arch} shows the refined architecture including all of the ASIL labels.
+
+\begin{figure}[!htpb]
+\includegraphics[width=1.00\linewidth]{graphic_asset_3}
+\caption{Refined architecture}
+\label{fig:refined-arch}
+\end{figure}
+
+
+
+\section{Allocation of Functional Safety Requirements to Architecture Elements}
+
+% Instructions: Mark which element or elements are responsible for meeting the
+% functional safety requirement. 
+% Hint: Only one ECU is responsible for meeting all of the requirements.
+
+Given the refined architecture presented in Figure~\ref{fig:refined-arch}
+we allocate each functional safety requirement to a corresponding 
+architecture element in Table~\ref{tab:req-arch}.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Mapping Functional Safety Requirements to Architecture}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{4.5cm}|L{2.2cm}|L{2.2cm}|L{2.2cm}  }
+\hline
+\rowcolor{black!10}
+ID &
+Functional Safety Requirement &
+Electronic Power Steering ECU &
+Camera ECU &
+Car Display ECU
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-01}}  &
+The lane keeping item shall ensure that the lane departure oscillating torque
+amplitude is below \textcolor{dark-red}{\texttt{Max\_Torque\_Amplitude}}  &
+\checkmark  &
+  &
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-02}}  &
+The lane keeping item shall ensure that the lane departure oscillating torque
+frequency is below \textcolor{dark-red}{\texttt{Max\_Torque\_Frequency}} &
+\checkmark  &
+  &
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 02-01}}  &
+The electronic power steering ECU shall ensure that the lane keeping
+assistance torque is applied for only \textcolor{dark-red}{\texttt{Max\_Duration}}  &
+\checkmark  &
+  &
+\\\hline
+\end{tabular}
+\end{center}
+\label{tab:req-arch}
+\end{table}
+
+
+\section{Warning and Degradation Concept}
+
+
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Warning and Degradation Concept}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{2.5cm}|L{4.2cm}|L{2.2cm}|L{2.2cm}  }
+\hline
+\rowcolor{black!10}
+ID &
+Degradation Mode &
+Trigger for Degradation Mode &
+Safe State invoked? &
+Driver Warning
+\\\hline
+\textcolor{brown}{\texttt{WDC-01}}  &
+Turn off the functionality &
+Vibration Torque frequency is above \textcolor{dark-red}{\texttt{Max\_Torque\_Frequency}}
+and vibration torque amplitude is above \textcolor{dark-red}{\texttt{Max\_Torque\_Amplitude}} &
+Yes  &
+Indication light on car display on\\\hline
+\textcolor{brown}{\texttt{WDC-02}}  &
+Turn off the functionality  &
+Lane keeing assistance is applied for more then \textcolor{dark-red}{\texttt{Max\_Duration}} 
+time interval &
+Yes  &
+Indication light on car display on\\\hline
+\end{tabular}
+\end{center}
+\label{tab:wdc}
+\end{table}

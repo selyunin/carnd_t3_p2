@@ -1,0 +1,114 @@
+\chapter{Goals and Measures}
+\label{ch:goals_and_measures}
+
+\section{Goals}
+% Instructions:
+% Describe the major goal of this project; 
+% what are we trying to accomplish by analyzing 
+% the lane assistance functions with ISO 26262?
+
+The goal of the project is to identify functional safety requirements, safety
+goals and propose means to achieve these safety goals using system's
+engineering.
+
+In general, this is done by identifying hazardous situations, and finding ways
+to reduce the risk of these hazards to the levels acceptable by society.
+
+By analyzing the Lane Assistance function with ISO 26262 we are trying to come
+up with the design of a system, using means and guidelines provided by the
+standard, such that the system is safe for humans to use, and would not create
+unnecessary dangerous situation, while using the system.
+
+The goal of this project can then be summarized as follows:
+\begin{enumerate}
+  \item Identify hazards in a Lane Assistance item
+	that could cause physical injury or damage to a person's health
+  \item Evaluate the risk of the hazardous situation 
+  \item Using systems engineering, propose means to prevent accidents from occurring 
+	by lowering risk to reasonable levels. 
+\end{enumerate}
+
+\section{Measures}
+% Instructions:
+% Fill in who will be responsible for each measure or activity. 
+% Hint: The lesson on Safety Management Roles and Responsibilities.
+% The options are:
+% All Team Members
+% Safety Manager
+% Project Manager
+% Safety Auditor
+% Safety Assessor
+
+Table~\ref{tab:measures} defines the following measures to maintain
+the safety standard defined by the ISO 26262.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Responsibilities for measures \& activities}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{5.5cm}|L{2.8cm}|L{4cm}  }
+ \hline
+\rowcolor{black!10}
+Measures and Activities & Responsibility & Timeline \\\hline
+Follow safety processes & All Team Members & Constantly \\\hline
+Create and sustain a safety culture & Safety Manager, All Team Members & Constantly \\\hline
+Coordinate and document the planned safety activities& Safety Manager & Constantly \\\hline
+Allocate resources with adequate functional safety competency & Project Manager & Within 2 weeks of start of project \\\hline
+Tailor the safety lifecycle & Safety Manager & Within 4 weeks of start of project \\\hline
+Plan the safety activities of the safety lifecycle& Safety Manager & Within 4 weeks of start of project \\\hline
+Perform regular functional safety audits & Safety Manager & Once every 2 months \\\hline
+Perform functional safety pre-assessment prior to audit by 
+external functional safety assessor & Safety Auditor & 3 months prior to main
+assessment\\\hline
+Perform functional safety assessment & Safety Assessor & Conclusion of functional safety activities\\\hline
+
+%\rowcolor{blue!5}
+%\texttt{ Measures and Activities} &  \texttt{ Responsibility} & Timeline \\
+ \hline
+\end{tabular}
+\end{center}
+\label{tab:measures}
+\end{table}
+
+The key team members in the Lane Assistance project and their the main
+responsibilities are as follows:
+
+\begin{enumerate}
+  \item Project Manager
+  \begin{itemize}
+	\item Overall project management
+	\item Acquires and allocates resources needed for the functional safety activities
+	\item Appoints safety manager or might act as safety manager
+  \end{itemize}
+  \item Safety Manager
+  \begin{itemize}
+	\item Planning, coordinating and documenting of the development phase of the safety lifecycle
+	\item Tailors the safety lifecycle
+	\item Maintains the safety plan
+	\item Monitors progress against the safety plan
+	\item Performs pre-audits before the safety auditor
+  \end{itemize}
+  \item Safety Engineer
+  \begin{itemize}
+	\item Product development
+	\item Integration
+	\item Testing at the hardware, software and system levels
+  \end{itemize}
+  \item Safety Auditor
+  \begin{itemize}
+	\item Ensures that the design and production implementation conform to the safety plan and ISO 26262.
+	\item Must be independent from the team developing the project
+  \end{itemize}
+  \item Safety Assessor
+  \begin{itemize}
+	\item Independent judgement as to whether functional safety is being achieved via a functional safety assessment
+	\item Must be independent from the team developing the project
+  \end{itemize}
+  \item Test Manager
+  \begin{itemize}
+	\item Plans testing activities
+	\item Coordinates testing to show that the vehicle system works correctly
+  \end{itemize}
+\end{enumerate}

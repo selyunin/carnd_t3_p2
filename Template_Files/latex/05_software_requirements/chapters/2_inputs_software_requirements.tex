@@ -1,0 +1,104 @@
+\chapter{Inputs to the Software Requirements and Architecture Document}
+\label{ch:inputs}
+
+% Instructions:
+ 
+% REQUIRED:
+% You are only required to develop this document for the LDW (lane departure warning)
+% amplitude malfunction. So here, provide the technical safety requirements for the LDW
+% amplitude malfunction as well as the refined system architecture diagram from the
+% technical safety concept.
+ 
+% OPTIONAL:
+% Expand this document to include software safety requirements for the LDW frequency
+% malfunction as well. Go even further and document software safety requirements for the
+% Lane Keeping Assistance (LKA) function as well.
+
+
+\section{Technical safety requirements}
+
+Technical Safety Requirements related to Functional Safety Requirement 01-01 are
+presented in Table~\ref{tab:tr0101}
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Technical Safety Requirements for \textcolor{dark-green}{\texttt{Functional Safety Requirement 01-01}}}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{5.2cm}|L{0.7cm}|L{1.3cm}|L{1.8cm}|L{2.0cm}  }
+\hline
+\rowcolor{black!10}
+ID &
+Technical Safety Requirement  &
+ASIL &
+Fault Tolerant Time Interval  &  
+Architecture Allocation  &  
+Safe State \\\hline
+\textcolor{harmonia-blue}{\texttt{Technical Safety Requirement 01-01-01}}  &
+The LDW safety component shall ensure that the amplitude of the 
+  \textcolor{dark-red}{\texttt{LDW\_Torque\_Request}}
+  sent to the 
+  \textbf{'Final electronic power steering Torque'} component is below 
+  \textcolor{dark-red}{\texttt{Max\_Torque\_Amplitude}} &
+C &
+50 ms  &
+  \textbf{LDW Safety} Software Block  &
+the lane assistance item is turned off 
+\\\hline
+\textcolor{harmonia-blue}{\texttt{Technical Safety Requirement 01-01-02}}  &
+As soon as the LDW function deactivates the LDW feature, the 
+  \textbf{'LDW Safety'}
+  software block shall send a signal to the car display ECU to turn on a
+  warning light&
+C &
+50 ms  &
+  \textbf{LDW Safety} Software Block  &
+the lane assistance item is turned off 
+\\\hline
+\textcolor{harmonia-blue}{\texttt{Technical Safety Requirement 01-01-03}}  &
+As soon as a failure is detected by the LDW function, it shall deactivate the
+  LDW feature and the 
+  \textcolor{dark-red}{\texttt{LDW\_Torque\_Request}} shall be set to zero &
+C &
+50 ms  &
+  \textbf{LDW Safety} Software Block  &
+the lane assistance item is turned off 
+\\\hline
+\textcolor{harmonia-blue}{\texttt{Technical Safety Requirement 01-01-04}}  &
+The validity and integrity of the data transmission for 
+  \textcolor{dark-red}{\texttt{LDW\_Torque\_Request}}
+  signal shall be ensured &
+C &
+50 ms  &
+  \textbf{LDW Safety} Software Block  &
+the lane assistance item is turned off 
+\\\hline
+\textcolor{harmonia-blue}{\texttt{Technical Safety Requirement 01-01-05}}  &
+Memory test shall be conducted at start up of the EPS ECU to check for any
+  faults in memory &
+A &
+ignition cycle  &
+  \textbf{Memory Management Unit}   &
+the lane assistance item is turned off 
+\\\hline
+\end{tabular}
+\end{center}
+\label{tab:tr0101}
+\end{table}
+
+\section{Refined Architecture Diagram from the Technical Safety Concept}
+
+% Instructions:
+ 
+% REQUIRED: Provide the refined system architecture diagram from the technical safety
+% concept
+
+The refined architecture of the lane assistance item is shown in Figure~\ref{fig:refined-arch}.
+
+\begin{figure}[!htbp]
+\includegraphics[width=1.00\linewidth]{graphic_asset_4}
+\caption{Refined architecture}
+\label{fig:refined-arch}
+\end{figure}
+

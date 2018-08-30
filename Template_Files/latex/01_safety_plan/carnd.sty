@@ -1,0 +1,119 @@
+% Udacity functional safety project LaTeX templates
+% 
+% Licence: 
+% Apache 2.0
+% 
+% Created:
+% 13 august 2018
+%
+% Author:
+% Dr. Konstantin Selyunin
+% selyunin.k.v@gmail.com
+% selyunin.com
+
+\ProvidesPackage{carnd}[2018/08/13 v0.1 Udacity functioinal safety LaTeX files]
+
+\chapterstyle{section}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\maxsecnumdepth{subsection}
+
+\usepackage[owncaptions]{vhistory}
+
+\usepackage{amssymb,amsmath}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{color, colortbl}
+\usepackage{pgf}					
+\usepackage[absolute,overlay]{textpos}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,positioning,calc,fit,backgrounds,intersections,through,automata}
+\usetikzlibrary{decorations.pathreplacing,decorations.text}
+\usepackage{color, colortbl}
+\usepackage{xspace}
+\usepackage{lastpage}
+\usepackage[colorinlistoftodos,prependcaption,textsize=scriptsize]{todonotes}
+\usepackage[english]{babel}
+\usepackage[absolute,overlay]{textpos}
+
+\usepackage[utf8]{inputenc}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\usepackage[sfdefault]{ClearSans} %% option 'sfdefault' activates Clear Sans as the default text font
+\usepackage[T1]{fontenc}
+
+\let\footruleskip\relax % for compatibility of memoir and fancyhdr
+\let\rm\rmfamily        % for compatibility of memoir and blindtext (demo only)
+\usepackage{fancyhdr}
+\renewcommand{\vhversionname}{Version}
+\renewcommand{\vhauthorname}{Editor}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% search for graphics in ./figures
+\usepackage{graphicx}
+\graphicspath{{figures/titlepage/}{../../../Architecture_Diagrams/}}
+
+% a recent geometry
+\usepackage{geometry}[2010/02/15]
+
+% create new titlepage pagestyle for memoir
+\makepagestyle{udacitytitlepage}
+\makeheadposition{udacitytitlepage}{center}{center}{center}{center}
+\makerunningwidth{udacitytitlepage}{\carnd@headwidth}
+
+% define page numbering styles
+\makepagestyle{numberCorner}
+\makeevenfoot{numberCorner}{\thepage}{}{}
+\makeoddfoot{numberCorner}{}{}{\thepage}
+
+
+\setlength{\beforechapskip}{-0.5cm}     % corrected command \midchapskip to \beforechapskip
+\setlength{\afterchapskip}{0.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define useful colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{mygreen}{rgb}{0.133,0.545,0.133}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.627,0.126,0.941}
+\definecolor{gray}{rgb}{144,144,144}
+\definecolor{orange}{rgb}{255,127,0}
+\definecolor{harmonia-blue}{RGB}{0,32,98}
+\definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\definecolor{bazaar}{rgb}{0.6, 0.47, 0.48}
+
+\definecolor{dark-green}{RGB}{50,145,35}
+\definecolor{dark-red}{RGB}{100,4,4}
+\definecolor{dark-brown}{RGB}{110, 66, 0}
+\definecolor{dvcon-yellow}{RGB}{255,215,0}
+\definecolor{dvcon-blue}{RGB}{0,0,153}
+\definecolor{dvcon-btext}{RGB}{0,0,127}
+\definecolor{date-grey}{RGB}{89,89,89}
+\definecolor{harmonia-grey}{RGB}{96,96,96}
+\definecolor{harmonia-red}{RGB}{255,0,0}
+\definecolor{date-blue}{RGB}{45,75,113}
+\definecolor{date-btext}{RGB}{45,75,113}
+\definecolor{bgblue}{RGB}{156,183,255}%
+\definecolor{bgred}{RGB}{255,156,156}%
+\definecolor{fggreen}{RGB}{21,92,3}%
+\definecolor{fgblue}{RGB}{6,38,125}%
+\definecolor{fgred}{RGB}{209,25,5}%
+\definecolor{btext}{RGB}{0,0,127}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\carnd@headwidth}
+\setlength{\carnd@headwidth}{18.2cm}
+\newlength{\carnd@footwidth}
+\setlength{\carnd@footwidth}{16cm}
+
+\endinput

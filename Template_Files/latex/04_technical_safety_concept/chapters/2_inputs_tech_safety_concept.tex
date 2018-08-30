@@ -1,0 +1,126 @@
+\chapter{Inputs to the Technical Safety Concept}
+\label{ch:inputs}
+
+\section{Functional Safety Requirements}
+
+% Instructions: 
+% Provide the functional safety requirements derived in the functional safety concept
+
+The functional safety requirements for the lane assistance item are presented in Table~\ref{tab:FuncReq}
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Functional Safety Requirements}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{1.8cm}|L{3.2cm}|L{0.7cm}|L{3.5cm}|L{3.5cm}  }
+ \hline
+\rowcolor{black!10}
+ID &
+Functional Safety Requirement  &
+ASIL &
+Fault Tolerant Time Interval  &  
+Safe State \\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-01}}  &
+The lane keeping item shall ensure that the lane departure oscillating torque
+amplitude is below \textcolor{dark-red}{\texttt{Max\_Torque\_Amplitude}}  &
+C &
+50 ms  &
+the system is turned off
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 01-02}}  &
+The lane keeping item shall ensure that the lane departure oscillating torque
+frequency is below \textcolor{dark-red}{\texttt{Max\_Torque\_Frequency}} &
+C &
+50 ms  &
+the system is turned off 
+\\\hline
+\textcolor{dark-green}{\texttt{Functional Safety Requirement 02-01}}  &
+The electronic power steering ECU shall ensure that the lane keeping
+  assistance torque is applied for only \textcolor{dark-red}{\texttt{Max\_Duration}}  &
+B &
+500 ms  &
+The lane keeping functionality is turned off\\\hline
+\end{tabular}
+\end{center}
+\label{tab:FuncReq}
+\end{table}
+
+\section{Refined System Architecture from Functional Safety Concept}
+
+% Instructions: 
+% Provide the refined system architecture from the functional safety concept
+
+The refined architecture of the lane assistance item is shown in Figure~\ref{fig:refined-arch}.
+
+\begin{figure}[!htbp]
+\includegraphics[width=1.00\linewidth]{graphic_asset_3}
+\caption{Refined architecture}
+\label{fig:refined-arch}
+\end{figure}
+
+
+\subsection{Functional overview of architecture elements}
+
+% Instructions: 
+% Provide a description for each functional safety element; 
+% what is each element's purpose in the lane assistance item?
+
+
+The functional overview of the architecture elements is
+shown in Table~\ref{tab:arch-elements}.
+
+\begin{table}[!htpb]
+%\hspace*{-2.0cm}
+\caption{Architecture elements}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ L{3.0cm}|L{9.8cm}  }
+ \hline
+\rowcolor{black!10}
+\textbf{Element} & \textbf{Descriptiion} \\\hline
+Camera Sensor &
+provides Image to the Camera Sensor ECU\\\hline
+Camera Sensor ECU - Lane Sensing &
+performs image processing and identifies position of a vehicle w.r.t. the lane\\\hline
+Camera Sensor ECU - Torque request generator & 
+Generates a request for EPS ECU to apply steering torque to keep a vehicle on the center of the lane\\\hline
+Car Display &
+displays the status of the lane assistance item\\\hline
+Car Display ECU - Lane Assistance On/Off Status &
+displays on a car display whether a lane assistance item is On/Off\\\hline
+Car Display ECU - Lane Assistant Active/Inactive &
+displays on a car display whether lane assistant is currently active\\\hline
+Car Display ECU - Lane Assistance malfunction warning &
+informs a driver that a lane assistance item malfunctions \\\hline
+Driver Steering Torque Sensor &
+senses the position of the steering wheel\\\hline
+Electronic Power Steering (EPS) ECU - Driver Steering Torque & 
+gets an input steering torque from the driver\\\hline
+EPS ECU - Normal Lane Assistance Functionality &
+calculates steering torque to keep the vehicle on the center of the road\\\hline
+EPS ECU - Lane Keeping Assistant Safety Functionality &
+monitors  Lane Keeping Assistant for Malfunctions and if a malfunction is 
+  detected a signal is sent to the car display to inform the driver and 
+  an item is shut down\\\hline
+EPS ECU - Lane Departure Warning Safety Functionality &
+monitors Lane Departure Warning for Malfunctions and if a malfunction is 
+  detected a signal is sent to the car display to inform the driver and 
+  an item is shut down\\\hline
+EPS ECU - Final Torque &
+given current velocity, steering torque from the driver and status of the 
+lane assistance item calculate a final torque applied to steer the car
+\\\hline
+Motor &
+activates vibrations of the steering wheel\\\hline
+%\textcolor{blue}{\texttt{Safety\_Goal\_03}} & 
+%\\\hline
+%\textcolor{blue}{\texttt{Safety\_Goal\_04}} &  \\\hline
+%\rowcolor{blue!5}
+%\texttt{ Measures and Activities} &  \texttt{ Responsibility} & Timeline \\
+\end{tabular}
+\end{center}
+\label{tab:arch-elements}
+\end{table}

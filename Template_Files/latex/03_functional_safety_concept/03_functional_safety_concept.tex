@@ -1,0 +1,116 @@
+% Udacity functional safety project LaTeX templates
+% 
+% Licence: 
+% Apache 2.0
+% 
+% Created:
+% 13 august 2018
+%
+% Author:
+% Dr. Konstantin Selyunin
+% selyunin.k.v@gmail.com
+% https://selyunin.com
+
+
+\documentclass[a4paper,12pt,oneside]{memoir}
+
+\usepackage{carnd}
+
+%FILL IN:
+\newcommand{\Author}{Konstantin Selyunin}
+\newcommand{\DocumentVersion}{0.1}
+\newcommand{\TemplateVersion}{1.0, Released on 2017-06-21}
+\newcommand{\DocumentHeaderText}{Functional Safety Concept}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\DocumentHeaderText}
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[R]{\small{Page  \thepage $\,$ of \pageref{LastPage}}}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   FRONTMATTER    %%%%%%%%%%%%%%%%%%%%
+%%%   TITLEPAGE      %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagenumbering{roman}
+\include{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   MAINMATTER        %%%%%%%%%%%%%%%%%
+%%%   DOCUMENT HISTORY  %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagenumbering{arabic}
+
+\setcounter{page}{2}
+\pagestyle{fancy}
+\makeatletter
+\let\ps@plain\ps@fancy
+\makeatother
+
+\cleardoublepage
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   REVISION HISTORY      %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\input{chapters/0_revision_history}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%   TABLE OF CONTENTS     %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents*
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   LIST OF FIGURES       %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% uncomment below if necessary
+%\listoffigures
+%\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   LIST OF TABLES        %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% uncomment below if necessary
+%\listoftables
+%\clearpage
+
+\pagestyle{fancy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   PURPOSE OF THE SAFETY CONCEPT  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/1_purpose_func_safety_concept}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   INPUTS FUNCTIONAL SAFETY CONCEPT %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/2_inputs_functional_safety_concept}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   FUNCTIONAL SAFETY CONCEPT  %%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/3_functional_safety_concept}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   LIST OF ABBREVIATIONS   %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/4_abbreviations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BACKMATTER %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+%\bibliographystyle{plain}
+\bibliographystyle{unsrt}
+\bibliography{bibliography/citations}
+\end{document}

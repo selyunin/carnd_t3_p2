@@ -1,0 +1,221 @@
+%\chapter{Introduction}
+%\label{ch:introduction}
+
+\begin{table}[!htpb]
+\caption{Hazard Analysis and Risk Assessment}
+\begin{center}
+\scriptsize
+\renewcommand{\arraystretch}{1.4}
+\hspace*{-2.0cm}
+\begin{tabular}{ 
+ |L{3.0cm}|
+  L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|
+  L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|
+  L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|L{3.0cm}|
+  L{3.0cm}|L{3.0cm}|}
+\hline
+\textbf{Hazard ID} & 
+\multicolumn{7}{c|}{\textbf{Situational Analysis}} & 
+\multicolumn{6}{c|}{\textbf{Hazard Identification}} &  
+\multicolumn{6}{c|}{\textbf{Hazard Event Classification}} &
+\multicolumn{2}{c|}{ \textbf{Determination of ASIL and Safety Goals}}
+\\\hline
+\rowcolor{black!10}
+ &
+% Situational Analysis
+Operational Mode &
+Operational Scenario  &
+Environmental Details &
+Situation Details &
+Other Details (optional) &
+Item Usage (function) & 
+Situation Description &
+% Hazard Identification
+Function &
+Deviation &
+Deviation Details &
+Hazardous Event (resulting effect) &
+Event Details &
+Hazardous Event Description &
+% Hazard Event Classification
+Exposure (of situation) &
+Rationale (for exposition) &
+Severity (of potential harm) &
+Rationale (for severity) &
+Controllability (of hazardous event) &
+Rationale (for controllability) &
+% Determination of ASIL and Safety Goals
+ASIL Determination &
+Safety Goal 
+\\\hline
+HA-001 &
+% Situational Analysis
+\textbf{OM3} Normal driving &
+\textbf{OS04} Highway  &
+\textbf{EN06} Rain (slippery road) &
+\textbf{SD02} High speed &
+ &
+\textbf{IU01} Correctly used & 
+High speed driving on a highway during rain (slippery road) &
+% Hazard Identification
+Lane Departure Warning (LDW) function shall apply an oscillating steering
+torque to provide the driver with haptic feedback &
+\textbf{DV04} Actor effect is too much. &
+The LDW function applies an oscillating torque with very high torque (above limit). &
+\textbf{EV00} Collision with other vehicle. &
+High haptic feedback can affect driver's ability to steer as intended. The
+driver could lose control of the vehicle and collide with another vehicle or
+with road infrastructure. &
+The LDW function applies too high an oscillating torque to the steering wheel (above limit). &
+% Hazard Event Classification
+\textbf{E3} medium probability &
+Drivering in a highway may happen once a month or more &
+\textbf{S3} Severe and life-threatening injuries &
+High speed travelling on a highway &
+\textbf{C3} Difficult to control or uncontrollable &
+Overreaction of the steering wheel may surprise a driver
+and cause over-reaction on steering which could lead to an
+accident &
+% Determination of ASIL and Safety Goals
+\textbf{C} &
+The oscillating steering torque from the lane departure warning function shall be limited
+\\\hline
+HA-002 &
+% Situational Analysis
+\textbf{OM3} Normal driving &
+\textbf{OS03} Country Road &
+\textbf{EN01} Normal conditions &
+\textbf{SD02} High speed &
+ &
+\textbf{IU02} Incorrectly used & 
+High speed driving driving on a country road under normal conditions, driver
+is mis-using the system for autonomous driving &
+% Hazard Identification
+Lane Keeping Assistance (LKA) function shall apply the steering torque when
+active in order to stay in ego lane &
+\textbf{DV03} Function always activated &
+LKA function is always activated &
+\textbf{EV00} Collision with other vehicle &
+Driver mis-uses the function for autonomous driving,
+therefore unable to react quickly in critical situations &
+The LKA function is always activated giving a driver
+an illusion of autonomous driving. &
+% Hazard Event Classification
+\textbf{E2} low probability &
+Driving on country road with high speed and mis-using the system &
+\textbf{S3} Severe and life-threatening injuries &
+High speed travelling on a country road &
+\textbf{C3} Difficult to control or uncontrollable &
+Driver could take hands off the steering wheel and
+unable to react quickly when driving with high speed
+ &
+% Determination of ASIL and Safety Goals
+\textbf{B} &
+LKA function shall be time limited and the additional steering torque shall end
+after a given timer interval so that the driver can not misuse the system for
+autonomous driving.
+\\\hline
+HA-003 &
+% Situational Analysis
+\textbf{OM3} Normal driving &
+\textbf{OS10} Road with construction site &
+\textbf{EN01} Normal conditions &
+\textbf{SD02} High speed &
+ &
+\textbf{IU01} Correctly used & 
+High speed driving on a road with construction site, 
+road signs and direction contradict lane lines&
+% Hazard Identification
+Lane Keeping Assistance (LKA) function shall apply the steering torque when
+active in order to stay in ego lane &
+\textbf{DV03} Function always activated &
+LKA function is not deactivated when lane is not detected &
+\textbf{EV-04} Front collision with obstacle &
+Applied steering torque if lane is detected but 
+no road signs contradict will confuse the driver, 
+and make driving more difficult &
+Applied torque to steer the car to the lane on a 
+road which undergoes construction may lead to
+collision with an infrastructure
+ &
+% Hazard Event Classification
+\textbf{E3} medium probability &
+Occurs once a month or more often for an average driver &
+\textbf{S3} Severe and life-threatening injuries &
+May lead to collision with infrastructure &
+\textbf{C3} Difficult to control or uncontrollable &
+Drivering may become more difficult to overcome
+the functionality of the system &
+% Determination of ASIL and Safety Goals
+\textbf{C} &
+LKA function shall be turned off if lane lines and 
+road signs contradict each other
+\\\hline
+HA-004 &
+% Situational Analysis
+\textbf{OM3} Normal driving &
+\textbf{OS04} Highway &
+\textbf{EN07} Snow (slippery road) &
+\textbf{SD02} High speed &
+ &
+\textbf{IU01} Correctly used & 
+High speed driving on a winter-road (snow/ice)
+&
+% Hazard Identification
+Lane Keeping Assistance (LKA) function shall apply the steering torque when
+active in order to stay in ego lane &
+\textbf{DV04} Actor effect is too much &
+LKA function applies too much torque on a slippery road &
+\textbf{EV-02} Side collision with other traffic &
+Too much steering torque applied may lead to drift
+and uncontrollable behavior &
+Too much steering torque applied on a slippery road
+may lead to drift on a high speed may lead to 
+uncontrollable driving and collision
+ &
+% Hazard Event Classification
+\textbf{E2} Low probability &
+Occurs a few times a year for the great majority of drivers &
+\textbf{S3} Severe and life-threatening injuries &
+May lead to collision with other vehicles or infrastructure &
+\textbf{C3} Difficult to control or uncontrollable &
+Drivering may become more difficult go out of a drift
+on a slippery road &
+% Determination of ASIL and Safety Goals
+\textbf{B} &
+Steering torque from the LKA function shall be limited
+depending on the environmental conditions and road
+condition
+\\\hline
+%\textcolor{harmonia-blue}{\texttt{Software Safety Requirement 05-01}}  &
+%A CRC verification check over the software code in the Flash memory shall be
+%done every time the ignition is switched from off to on to check for any
+%corruption of content.	
+%&
+%A &
+%\texttt{MEMORYTEST}  &
+%Activation\_status = 0
+%\\\hline
+%\textcolor{harmonia-blue}{\texttt{Software Safety Requirement 05-02}}  &
+%Standard RAM tests to check the data bus, address bus and device integrity
+%shall be done every time the ignition is switched from off to on (E.g.walking
+%1s test, RAM pattern test. Refer RAM and processor vendor recommendations )
+%&
+%A &
+%\texttt{MEMORYTEST}  &
+%Activation\_status = 0
+%\\\hline
+%\textcolor{harmonia-blue}{\texttt{Software Safety Requirement 05-03}}  &
+%The test result of the RAM or Flash memory shall be indicated to the 
+%\textbf{LDW\_Safety}
+%component via the 
+%\textcolor{dark-red}{\texttt{test\_status}} signal	
+%&
+%A &
+%\texttt{MEMORYTEST} &
+%Activation\_status = 0
+%\\\hline
+\end{tabular}
+\end{center}
+\label{tab:sr05}
+\end{table}
